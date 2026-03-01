@@ -3,6 +3,7 @@ import {setServers } from 'node:dns';
 import dotenv from 'dotenv'
 import connectDB from "./db/index.js";
 import { log } from 'node:console';
+import {app} from './app.js'
 
 setServers (['1.1.1.1' , '8.8.8.8']);
 
@@ -15,7 +16,7 @@ dotenv.config({
 connectDB()
 .then(() =>{
     app.listen(process.env.PORT || 8000, () =>{
-        console.log(` Server is running at port : $ {process.env.PORT}`);
+        console.log(` Server is running at port : ${process.env.PORT}`);
         
     })
 })
